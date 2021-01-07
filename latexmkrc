@@ -12,5 +12,4 @@ sub run_makeglossaries {
 
 push @generated_exts, 'glo', 'gls', 'glg';
 push @generated_exts, 'acn', 'acr', 'alg';
-push @generated_exts, 'bbl', 'synctex.gz', 'run.xml';
-$clean_ext .= ' %R.ist %R.xdy';
+$clean_ext .= ' %R.ist %R.xdy run.xml synctex.gz bbl';
