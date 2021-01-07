@@ -1,0 +1,18 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.154.2/containers/ubuntu
+{
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash"
+  },
+
+  "extensions": [
+	"james-yu.latex-workshop"
+]
+
+  //   "postCreateCommand": "sudo chown -R vscode:vscode .",
+  //   "remoteUser": "vscode"
+}
