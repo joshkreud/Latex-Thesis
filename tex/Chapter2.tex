@@ -1,0 +1,26 @@
+
+% !TEX encoding = UTF-8
+% !TEX spellcheck = de_DE
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\section{Chapter 2}
+Lorem ipsum dolor \gls{FEM} dolor \mycref{anh:MultiPageInclude} vor.
+\lipsum[1]
+\mycref{tab:sometablelabel}
+\begin{table}[H]
+	\centering
+	\setcounter{magicrownumbers}{0}
+	\begin{tabularx}{\textwidth}{p{0pt} X m{40mm}}
+		\toprule
+		\#         & \textbf{separele}:                                                             & \textbf{site}:      \\
+		\midrule\morecmidrules\midrule
+		\rownumber & Duis aute irure dolor in reprehenderit in voluptate                            & consectetur    \\
+		\midrule
+		\rownumber & Lorem ipsum dolor sit amet, consectetur adipiscing elit \SI{100}{\km\per\hour} & dolor \\
+		\bottomrule
+	\end{tabularx}
+	\caption{ipsum dolor sit}
+	\label{tab:sometablelabel}
+\end{table}
+
+\end{document}

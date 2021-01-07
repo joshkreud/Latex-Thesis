@@ -1,0 +1,54 @@
+
+% !TEX encoding = UTF-8
+% !TEX spellcheck = de_DE
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\pagebreak
+\section{Chapter 4}
+\begin{wrapfigure}{r}{7cm}
+	\centering
+	\frame{\includegraphics[width=0.9\linewidth]{Testbild.jpg}}
+	\caption{Nulla posuere sollicitudin aliquam \protect \autocite{Cite1}}
+	\label{fig:nicelabel}
+\end{wrapfigure}
+NLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua \gls{FEM} durchgeführt.
+Bei historischen \gls{LKW} Odio eu feugiat pretium nibh ipsum consequat nisl Enim neque volutpat ac tincidunt vitae semper quis \\
+Ipsum \gls{LKW} scelerisque eu ultrices vitae auctor \gls{PKW}, Convallis posuere morbi \mycref{fig:labelofsubfigure1} Est lorem ipsum dolor sit amet.
+Sit amet mattis vulputate \mycref{fig:nicelabel} vitae semper quis lectus nulla \mycref{fig:labelofmainfigure} Ut tortor pretium
+viverra suspendisse potenti nullam. In cursus turpis massa tincidunt. Libero id \par
+Fermentum et sollicitudin ac orci phasellus egestas tellus rutrum tellus. Quis auctor elit sed vulputate. Nulla facilisi nullam vehicula ipsum a
+arcu cursus. Proin sed libero enim sed. Eu tincidunt tortor aliquam nulla facilisi cras fermentum odio. dolor \gls{PKW} Elementum curabitur \glspl{EntryPlural}
+\autocite{Cite1} Nunc faucibus a pellentesque sit amet porttitor eget dolor.
+\mycref{sec:C3}
+\begin{figure}[H]
+	\centering
+	\frame{\includegraphics[width=\linewidth]{Testbild.jpg}}
+	\caption{Eu tincidunt tortor aliquam nulla facili \protect \autocite{Cite2}}
+	\label{fig:verydescriptivelabel}
+\end{figure}
+
+\clearpage
+
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{0.49\textwidth}
+		\frame{\includegraphics[width=\textwidth]{Testbild.jpg}}
+		\caption{Fermentum et sollicitudin ac orci \protect \autocite{Cite2}}
+		\label{fig:labelofsubfigure1}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.49\textwidth}
+		\frame{\includegraphics[width=\textwidth]{Testbild.jpg}}
+		\caption{\protect \gls{PKW}-Arm \protect \autocite{Cite1}}
+		\label{fig:labelofsubfigure2}
+	\end{subfigure}
+
+	\caption{ Elit ut aliquam purus sit amet luctus venenatis. \protect \gls{EntryWithAcronym}}
+	\label{fig:labelofmainfigure}
+\end{figure}
+
+
+Nunc faucibus a \gls{EntryWithAcronym}tellus in hac habitasse platea dictumst vestibulum \gls{NormalEntryLink} am \wichtig{24.08.2017} dolor sed. \mycref{anh:MultiPageInclude}
+
+\Milestone{Benchmark}{Nunc faucibus a pellentesque}
+\end{document}

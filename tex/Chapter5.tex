@@ -1,0 +1,58 @@
+
+% !TEX encoding = UTF-8
+% !TEX spellcheck = de_DE
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\clearpage
+\section{Chapter 5}
+
+\subsection{Subchapter 5.1}
+
+\subsubsection{Lorem Ipsum}
+
+\lipsum[1] \gls{NestedAcronym} lorem \mycref{anh:MultiPageInclude}
+\lipsum[2] \mycref{tab:Bewertungskriterien}.
+
+\begin{table}[H]
+	\centering
+	\setcounter{magicrownumbers}{0}
+	\begin{tabularx}{\textwidth}{p{2pt} m{40mm} X}
+		\toprule
+		           & \textbf{Col1H\_ead}:      & \textbf{Col2\_Head}:                                                      \\
+		\midrule\morecmidrules\midrule
+		\rownumber & pellentesque              & Fermentum et sollicitudin ac orci phasellus egestas tellus rutrum tellus. \\
+		\midrule
+		\rownumber & Fermentum et sollicitudin & Eu tincidunt tortor aliquam nulla facilisi cras fermentum odio.           \\
+		\bottomrule
+	\end{tabularx}
+	\caption{Bewertungskriterien}
+	\label{tab:Bewertungskriterien}
+\end{table}
+
+\pagebreak
+
+\subsubsection{sollicitudin ac orci}
+\lipsum[1] \mycref[ Spalte: \enquote{sollicitudin}]{fig:egestas}
+\begin{figure}[H]
+	\centering
+	\frame{\includegraphics[width=15cm,page=2,trim={0 3cm 0 4cm},clip]{Testbild.jpg}}
+	\caption{\protect \glsdesc{NestedAcronym}}
+	\label{fig:egestas}
+\end{figure}
+
+
+\subsubsection{fermentum}
+\lipsum[1]
+
+\begin{description}
+	\item[vestibulum] \hfill \\
+	      \lipsum[1]
+
+	\item[Convallis posuere] \hfill \\
+	      \lipsum[2]
+
+\end{description}
+
+
+\Milestone{Fermentum}{Integer eget aliquet nibh praesent tristique magna. Nunc non blandit massa enim.}
+\end{document}

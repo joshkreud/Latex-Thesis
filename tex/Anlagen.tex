@@ -1,0 +1,26 @@
+
+% !TEX encoding = UTF-8
+% !TEX spellcheck = de_DE
+\documentclass[../Abschlussprojekt.tex]{subfiles}
+\begin{document}
+	%\markright{Anhagng}
+	\newpage
+	\renewcommand\thetable{\thesubsection\arabic{table}}
+	\renewcommand\thefigure{\thesubsection\arabic{figure}}
+	\crefalias{section}{appendix}
+	\crefalias{subsection}{appendix}
+	 
+	\setcounter{section}{0}
+	\renewcommand{\thesection}{\Alph{section}} 
+	
+	
+	\begin{appendices}
+		\section{Anlagen}
+		\includemultipdf{./pdf/MultiPDFExample.pdf}{\subsection{Multi Page}\label{anh:MultiPageInclude}}
+		
+		\includepdf[frame= true,width=\textwidth,pagecommand={\subsection{Single Page}\label{anh:SinglePageInclude}}, offset=0 -0.5cm]{./pdf/SinglePDFExample.pdf}
+		
+	
+	\end{appendices}
+	
+\end{document}

@@ -1,0 +1,345 @@
+\documentclass[11pt,a4paper,numbers=enddot,bibliography=totoc,toc=sectionentrywithdots,dvipsnames]{scrartcl}
+\pdfminorversion=7
+\usepackage[utf8]{inputenc} % Formatting
+\usepackage{subfiles} % Subfiles
+\usepackage[T1]{fontenc} %Europäische fontcodierung
+\usepackage[ngerman]{babel} % Deutsch
+\usepackage{textcomp} % Euro Zeichen usw für T1 font
+\usepackage{lmodern} %Clear PDF Fonts
+\usepackage[onehalfspacing]{setspace} % Zeilenabstand
+\usepackage[font=scriptsize,labelfont=bf]{caption} % Caption modifications
+\usepackage{amsmath}
+\usepackage{lipsum}
+
+
+%\setlength{\leftmargini}{0pt} %Description nicht einrücken
+
+\usepackage[titles]{tocloft}
+%\addtolength{\cftsecnumwidth}{10pt}
+
+%------------------------ Schnellkommandos (Formatierung) ----------------------
+\newcommand*{\name}[1]{\textsc{#1}}%
+\newcommand*{\verweis}[1]{\textcolor{Black70}{\texttt{#1}}}%
+\newcommand*{\fachbegriff}[1]{\emph{#1}}%
+\newcommand*{\wichtig}[1]{\textbf{#1}}%
+\newcommand*{\zB}{\mbox{z.\,B.\ }}%
+\newcommand*{\email}[1]{\textcolor{MidnightBlue}{\href{mailto:#1}{\ttfamily#1}}}%
+
+% Registered definieren
+\def\SymbReg{\textsuperscript{\textregistered}}
+
+% Unterschriftenboxen 
+\newcommand{\titledate}[2][2.5in]{%
+	\noindent%
+	\begin{tabular}{@{}p{#1}@{}}
+		\\\\ \hline \\[-.75\normalbaselineskip]
+		#2
+	\end{tabular} \hspace{1in}
+	\begin{tabular}{@{}p{#1}@{}}
+		\\\\ \hline \\[-.75\normalbaselineskip]
+		Ort / Datum
+	\end{tabular}
+}
+
+
+\newcommand{\Milestone}[2]{
+	%\par
+	\begin{tabularx}{\textwidth}{m{2cm}X}
+		%	\\ \relax
+		\includegraphics[width=2cm]{Meilenstein.pdf}  & \parbox[c]{\hsize}{Meilenstein \enquote{\wichtig{\name{#1}}} erreicht: #2}
+	\end{tabularx}
+}
+
+%------------------------ SI Units and better Number Display ----------------------
+\usepackage{siunitx} % mathematitsche einheiten. / TausenderTrennzeichen 
+%SI Unit Setup
+\sisetup{
+	locale=DE,
+	seperr,
+	repeatunits=true,
+	separate-uncertainty,
+	per-mode =fraction,
+	trapambigerr=false,
+	tophrase={{ bis }},
+	list-units = brackets,
+	%range-units = brackets,
+	multi-part-units = brackets,
+	table-unit-alignment = left,
+	group-separator={.},
+	detect-all=true
+	%detect-family=true
+}
+
+
+%------------------------ Todos &Draft ----------------------
+%\usepackage[german,figwidth=10cm,shadow]{todonotes}
+%\usepackage{draftwatermark}
+%\definecolor{lightRed}{RGB}{250,189,189}
+%\SetWatermarkColor{lightRed}
+
+%------------------------ Schriftarten ----------------------
+%\usepackage{mathpazo} %Schöne font
+
+% Oder Arial:
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+%------------------------ Bilder Einfügen ----------------------
+
+\usepackage{graphicx} % Bilder einfügen
+\usepackage{subcaption}
+\captionsetup[subfigure]{subrefformat=simple,labelformat=simple}
+\captionsetup{font=normalsize}
+\captionsetup[sub]{font=small}
+\renewcommand\thesubfigure{(\alph{subfigure})}
+
+\usepackage{wrapfig} % Fließende Bilder im Tex
+\usepackage{float}
+
+\usepackage{chngcntr} % Fußnote fortlaufend
+\makeatletter 
+\@addtoreset{figure}{section} 
+\@addtoreset{table}{section} 
+\makeatother 
+
+\renewcommand{\thefigure}{\thesection.\arabic{figure}} %Bilder mit Section Nummer Prefixed
+\renewcommand{\thetable}{\thesection.\arabic{table}}   %Tabellen mit Section Nummer Prefixed
+
+
+
+%Image Pfad
+\graphicspath{{./img/}{../img/}}
+
+%------------------------ Better Textformatting ----------------------
+\usepackage[activate={true,nocompatibility},babel,protrusion=true,expansion=true,final,tracking=true,kerning=true,spacing=true,stretch=10,shrink=10]{microtype} 
+\SetProtrusion{encoding={*},family={bch},series={*},size={6,7}}
+{1={ ,750},2={ ,500},3={ ,500},4={ ,500},5={ ,500},
+	6={ ,500},7={ ,600},8={ ,500},9={ ,500},0={ ,500}}
+\SetExtraKerning[unit=space]
+{encoding={*}, family={bch}, series={*}, size={footnotesize,small,normalsize}}
+{\textendash={400,400}, % en-dash, add more space around it
+	"28={ ,150}, % left bracket, add space from right
+	"29={150, }, % right bracket, add space from left
+	\textquotedblleft={ ,150}, % left quotation mark, space from right
+	\textquotedblright={150, }} % right quotation mark, space from left
+
+\SetExtraKerning[unit=space]
+{encoding={*}, family={qhv}, series={b}, size={large,Large}}
+{1={-200,-200}, \textendash={400,400}}
+
+\SetTracking{encoding={*}, shape=sc}{40}
+
+% Schusterjungen und Hurenkinder vermeiden
+\clubpenalty = 10000
+\widowpenalty = 10000 
+\displaywidowpenalty = 10000
+
+%------------------------ Compiler Settings ----------------------
+\begingroup\expandafter\expandafter\expandafter\endgroup
+\expandafter\ifx\csname pdfsuppresswarningpagegroup\endcsname\relax
+\else
+\pdfsuppresswarningpagegroup=1\relax
+\fi
+
+
+
+%------------------------ Literatur ----------------------
+\usepackage[
+backend=biber,
+style=Numeric, %
+isbn=false,
+sorting=none,                % ISBN nicht anzeigen, gleiches geht mit nahezu allen anderen Feldern
+pagetracker=true,          % ebd. bei wiederholten Angaben (false=ausgeschaltet, page=Seite, spread=Doppelseite, true=automatisch)
+maxbibnames=50,            % maximale Namen, die im Literaturverzeichnis angezeigt werden (ich wollte alle)
+maxcitenames=3,            % maximale Namen, die im Text angezeigt werden, ab 4 wird u.a. nach den ersten Autor angezeigt
+autocite=inline,           % regelt Aussehen für \autocite (inline=\parancite)
+block=space,               % kleiner horizontaler Platz zwischen den Feldern
+backref=true,              % Seiten anzeigen, auf denen die Referenz vorkommt
+backrefstyle=three+,       % fasst Seiten zusammen, z.B. S. 2f, 6ff, 7-10
+date=short,                % Datumsformat
+]{biblatex}
+
+% prints author names as small caps
+\renewcommand{\mkbibnamefirst}[1]{\textsc{#1}}
+\renewcommand{\mkbibnamelast}[1]{\textsc{#1}}
+\renewcommand{\mkbibnameprefix}[1]{\textsc{#1}}
+\renewcommand{\mkbibnameaffix}[1]{\textsc{#1}}
+
+
+%------------------------ Zitate ----------------------
+\usepackage[autostyle=true,german=quotes]{csquotes}% Better Quotes
+%Autoenquote von Zitaten
+\renewcommand*{\mkblockquote}[4]{\enquote{#1}#2#4#3}
+\renewcommand*{\mktextquote}[4]{\enquote{#1}#2#4#3}
+
+\bibliography{./sources}%Literaturdatei
+
+%------------------------ Anhänge ----------------------
+\usepackage{appendix}
+\addto\captionsngerman{\let\appendixtocname\appendixname%
+	\let\appendixpagename\appendixname}
+\usepackage{pdfpages} % Pdfs EInbinden
+
+%Insert Multisite pdfs into appendix with Section
+\newcommand*{\includemultipdf}[2]{
+	\includepdf[pages=1,frame= true,width=\textwidth,pagecommand={#2}, offset=0 -0.5cm]{#1}
+	\includepdf[pages=2-,frame= true,width=\textwidth,pagecommand={}]{#1}
+}
+
+
+%------------------------ TABLES ----------------------
+\usepackage{booktabs,ltablex} % Better Tables
+%\usepackage{longtable,tabularx }
+\textheight = 4in                      %to force a page break after a few rows
+%\renewcommand{\arraystretch}{1.5}   %improve spacing
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+
+%-------------------Fix Longtable Numbering--------------------
+\makeatletter
+\newif\ifLT@nocaption
+\preto\longtable{\LT@nocaptiontrue}
+\appto\endlongtable{%
+	\ifLT@nocaption
+	\addtocounter{table}{\m@ne}%
+	\fi}
+\preto\LT@caption{%
+	\noalign{\global\LT@nocaptionfalse}}
+\makeatother
+%--------------------------------------------------------------
+
+\captionsetup[table]{skip=5pt} % Table Caption näher an Tabelle
+\setlength\heavyrulewidth{0.25ex}
+
+\usepackage{etoolbox} % Tabelle Numberings
+\preto\tabular{\setcounter{magicrownumbers}{0}}
+\newcounter{magicrownumbers}
+\newcommand\rownumber{\stepcounter{magicrownumbers}\arabic{magicrownumbers}.\space}
+
+%------------------------ Erste Section der Seite im header anzeigen ----------------------
+\renewcommand{\sectionmark}[1]{
+	\markright{\thesection{} #1}{} % Erste Section als Rightmark setzen
+}
+
+
+
+
+%------------------------ PDF Optionen ----------------------
+\usepackage[
+%hidelinks,
+pdfborder={0 0 0},
+bookmarks,
+linktoc=all,
+bookmarksopen=true,
+colorlinks=false,
+linkcolor=blue, % einfache interne Verkn¸pfungen
+anchorcolor=black, % Ankertext
+citecolor=red, % Verweise auf Literaturverzeichniseintr‰ge im Text
+filecolor=black, % Verkn¸pfungen, die lokale Dateien ˆffnen
+menucolor=black, % Acrobat-Men¸punkte
+urlcolor=blue, 
+pagebackref=false,
+plainpages=false, % zur korrekten Erstellung der Bookmarks
+pdfpagelabels, % zur korrekten Erstellung der Bookmarks
+%hypertexnames=false, % zur korrekten Erstellung der Bookmarks
+]{hyperref}
+%\usepackage[all]{hypcap}
+\usepackage{caption}
+
+% Befehle, die Umlaute ausgeben, f¸hren zu Fehlern, wenn sie hyperref als Optionen ¸bergeben werden
+\hypersetup{
+	pdftitle={\titel - \untertitel},
+	pdfauthor={\autor},
+	pdfcreator={\autor},
+	pdfsubject={\untertitel},
+	pdfkeywords={\titel}{\untertitel},
+}
+
+%------------------------ Farben ----------------------
+\usepackage{xcolor} % Own color
+\usepackage{colortbl}
+\definecolor{Red}{RGB}{177,0,52}
+\definecolor{Black70}{RGB}{112,113,115}
+\definecolor{Black40}{RGB}{177,179,180}
+\definecolor{Black20}{RGB}{217,218,219}
+\definecolor{Black10}{RGB}{236,237,237}
+
+%------------------------ Formatierung ----------------------
+\addtokomafont{section}{\color{Red}}
+\addtokomafont{subsection}{\color{Red}}
+\addtokomafont{subsubsection}{\color{Red}}
+\renewcommand\UrlFont{\color{MidnightBlue}\ttfamily}
+% Paragraph start nicht einrücken 
+\setlength{\parindent}{0pt}
+
+
+%------------------------ Referencing Must be Loaded after hyperref ----------------------
+\usepackage[ngerman,nameinlink]{cleveref}
+
+\newcommand*{\cnameref}[1]{(s. \cref{#1} \nameref{#1})}
+%\newcommand*{\Cnameref}[1]{(s. \Cref{#1} \nameref{#1})}
+
+\newcommand{\mycref}[2][]{(s. \cref{#2}{#1})}
+%\newcommand{\myCref}[2][]{(s. \Cref{#2}{#1})}
+
+
+\makeatletter
+\AtBeginDocument{%
+	\if@cref@abbrev\crefname{table}{Tab.}{Tab.}%
+	\else\Crefname{table}{Tabelle}{Tabellen}\fi%
+	\if@cref@abbrev\crefname{appendix}{Anh.}{Anh.}%
+	\else\Crefname{appendix}{Anhang}{Anhänge}\fi%
+}%
+\makeatother
+
+%Abbreviations for Captions (Geht nur in KOMA Script klassen)
+\renewcaptionname{ngerman}{\contentsname}{Inhalt}
+\renewcaptionname{ngerman}{\listfigurename}{Abbildungen}
+\renewcaptionname{ngerman}{\listtablename}{Tabellen}
+\renewcaptionname{ngerman}{\figurename}{Abb.}
+\renewcaptionname{ngerman}{\tablename}{Tab.}
+
+%------------------------ Pagelayout ----------------------
+\usepackage[left=30mm,right=30mm,top=30mm,bottom=30mm,footskip=.8cm]{geometry} % Seitenränder & Layout
+
+%------------------------ Kopf-Fußzeile ----------------------
+\usepackage[headsepline,footsepline,plainfootsepline,automark,pagestyleset=KOMA-Script,]{scrlayer-scrpage} %Haeder & Footer
+\usepackage{lastpage} %Pagenumbers
+\usepackage{setspace}
+\automark{section}
+\automark*{subsection}
+\clearpairofpagestyles
+
+\pagestyle{scrheadings}
+\setlength{\headheight}{45pt}
+\renewcommand{\headfont}{\normalfont}
+\rohead{\includegraphics[width=2.5cm]{Testbild.jpg}}
+\lohead{\textbf{\titel} \\ \parbox[b]{\textwidth /2}{\begin{spacing}{0,8} \color{Red}\headmark \end{spacing}} }
+\cohead{}
+\lofoot{\scriptsize\autor\ }
+\cofoot{\today}
+
+
+%------------------------ Glossaries ----------------------
+\usepackage[acronyms,translate=babel,xindy,style=list]{glossaries}
+
+\renewcommand*{\glossarypreamble}{%
+	\label{\currentglossary}%
+}
+
+\renewcommand*{\glossaryentrynumbers}[1]{Seite: #1}
+%\defglsentryfmt[main]{\fachbegriff{\Glsentryname{\glslabel}}\footnote{\Glsentrydesc{\glslabel}}}
+
+\usepackage{xparse}
+\DeclareDocumentCommand{\newdualentry}{ O{} O{} m m m m } {
+	\newglossaryentry{gls-#3}{name={#5 (#4)},description={#6},#1}
+	\makeglossaries
+	\newglossaryentry{#3}{type=\acronymtype, name={#4}, description=#5, first={\gls{gls-#3}}, see=[Glossar:]{gls-#3}}
+}
+
+%\renewcommand{\glsnumberformat}[1]{%
+%	(\ifthenelse{\DTLisSubString{#1}{\delimN}\OR\DTLisSubString{#1}{\delimR}}%
+%	{Seiten #1}{Seite #1})}
+
+
+\loadglsentries[main]{./tex/Glossaries}
+\makeglossaries

@@ -1,0 +1,54 @@
+
+% !TEX encoding = UTF-8
+% !TEX spellcheck = de_DE
+%\newacronymgerman{<name>}{<abbrev>}{<Nom>}{<Akk>}{<Dat>}{<Gen>}
+
+\newacronym{LKW}{LKW}{Lastkraftwagen}
+\newacronym{PKW}{PKW}{Personenkraftwagen}
+
+% Acronym and Glossary in one
+\newdualentry{NestedAcronym} % label
+{NAC}            % abbreviation
+{Nested Acronym}  % long form
+{Acronyms can be nested like this: \protect \gls{FEM}-Calculations} % description
+
+
+\newdualentry{FEM} % label
+{FEM}            % abbreviation
+{Finite Elemente Methode}  % long form
+{Numeric System to calculate forces in parts} % description
+
+\newglossaryentry{NestedEntry}
+{
+	name=NestedGlossaryEntry,
+	description={Glossary entries can be nested like this: \protect \gls{NormalEntry}}
+}
+
+
+\newglossaryentry{EntryWithAcronym}
+{
+	name=EntryWithAcronym,
+	description={glossary entries can also contain acronyms \protect \acrfull{LKW}},
+	plural={EntriesWithAcronym}
+
+}
+
+\newglossaryentry{NormalEntryLink}
+{
+	name=GlossaryEntrywithLink,
+	description={Glossary entries take all the new formatting \name{functions} (\url{www.dropbox.com})}
+}
+
+\newglossaryentry{NormalEntry}
+{
+	name=NormalGlossaryEntry,
+	description={this is the description of a glossary entry}
+}
+
+\newglossaryentry{EntryPlural}
+{
+	name=singular,
+	description={Glossary entries can be assigned a Plural.},
+	plural={plural}
+}
+
