@@ -14,7 +14,7 @@
 
 %\setlength{\leftmargini}{0pt} %Description nicht einrücken
 
-\usepackage[titles]{tocloft}
+% \usepackage[titles]{tocloft}
 %\addtolength{\cftsecnumwidth}{10pt}
 
 %------------------------ Schnellkommandos (Formatierung) ----------------------
@@ -28,7 +28,7 @@
 % Registered definieren
 \def\SymbReg{\textsuperscript{\textregistered}}
 
-% Unterschriftenboxen 
+% Unterschriftenboxen
 \newcommand{\titledate}[2][2.5in]{%
 	\noindent%
 	\begin{tabular}{@{}p{#1}@{}}
@@ -46,12 +46,12 @@
 	%\par
 	\begin{tabularx}{\textwidth}{m{2cm}X}
 		%	\\ \relax
-		\includegraphics[width=2cm]{Meilenstein.pdf}  & \parbox[c]{\hsize}{Meilenstein \enquote{\wichtig{\name{#1}}} erreicht: #2}
+		\includegraphics[width=2cm]{Meilenstein.pdf} & \parbox[c]{\hsize}{Meilenstein \enquote{\wichtig{\name{#1}}} erreicht: #2}
 	\end{tabularx}
 }
 
 %------------------------ SI Units and better Number Display ----------------------
-\usepackage{siunitx} % mathematitsche einheiten. / TausenderTrennzeichen 
+\usepackage{siunitx} % mathematitsche einheiten. / TausenderTrennzeichen
 %SI Unit Setup
 \sisetup{
 	locale=DE,
@@ -97,10 +97,10 @@
 \usepackage{float}
 
 \usepackage{chngcntr} % Fußnote fortlaufend
-\makeatletter 
-\@addtoreset{figure}{section} 
-\@addtoreset{table}{section} 
-\makeatother 
+\makeatletter
+\@addtoreset{figure}{section}
+\@addtoreset{table}{section}
+\makeatother
 
 \renewcommand{\thefigure}{\thesection.\arabic{figure}} %Bilder mit Section Nummer Prefixed
 \renewcommand{\thetable}{\thesection.\arabic{table}}   %Tabellen mit Section Nummer Prefixed
@@ -111,17 +111,17 @@
 \graphicspath{{./img/}{../img/}}
 
 %------------------------ Better Textformatting ----------------------
-\usepackage[activate={true,nocompatibility},babel,protrusion=true,expansion=true,final,tracking=true,kerning=true,spacing=true,stretch=10,shrink=10]{microtype} 
+\usepackage[activate={true,nocompatibility},babel,protrusion=true,expansion=true,final,tracking=true,kerning=true,spacing=true,stretch=10,shrink=10]{microtype}
 \SetProtrusion{encoding={*},family={bch},series={*},size={6,7}}
 {1={ ,750},2={ ,500},3={ ,500},4={ ,500},5={ ,500},
 	6={ ,500},7={ ,600},8={ ,500},9={ ,500},0={ ,500}}
 \SetExtraKerning[unit=space]
 {encoding={*}, family={bch}, series={*}, size={footnotesize,small,normalsize}}
 {\textendash={400,400}, % en-dash, add more space around it
-	"28={ ,150}, % left bracket, add space from right
-	"29={150, }, % right bracket, add space from left
-	\textquotedblleft={ ,150}, % left quotation mark, space from right
-	\textquotedblright={150, }} % right quotation mark, space from left
+"28={ ,150}, % left bracket, add space from right
+"29={150, }, % right bracket, add space from left
+\textquotedblleft={ ,150}, % left quotation mark, space from right
+\textquotedblright={150, }} % right quotation mark, space from left
 
 \SetExtraKerning[unit=space]
 {encoding={*}, family={qhv}, series={b}, size={large,Large}}
@@ -131,32 +131,32 @@
 
 % Schusterjungen und Hurenkinder vermeiden
 \clubpenalty = 10000
-\widowpenalty = 10000 
+\widowpenalty = 10000
 \displaywidowpenalty = 10000
 
 %------------------------ Compiler Settings ----------------------
 \begingroup\expandafter\expandafter\expandafter\endgroup
 \expandafter\ifx\csname pdfsuppresswarningpagegroup\endcsname\relax
 \else
-\pdfsuppresswarningpagegroup=1\relax
+	\pdfsuppresswarningpagegroup=1\relax
 \fi
 
 
 
 %------------------------ Literatur ----------------------
 \usepackage[
-backend=biber,
-style=Numeric, %
-isbn=false,
-sorting=none,                % ISBN nicht anzeigen, gleiches geht mit nahezu allen anderen Feldern
-pagetracker=true,          % ebd. bei wiederholten Angaben (false=ausgeschaltet, page=Seite, spread=Doppelseite, true=automatisch)
-maxbibnames=50,            % maximale Namen, die im Literaturverzeichnis angezeigt werden (ich wollte alle)
-maxcitenames=3,            % maximale Namen, die im Text angezeigt werden, ab 4 wird u.a. nach den ersten Autor angezeigt
-autocite=inline,           % regelt Aussehen für \autocite (inline=\parancite)
-block=space,               % kleiner horizontaler Platz zwischen den Feldern
-backref=true,              % Seiten anzeigen, auf denen die Referenz vorkommt
-backrefstyle=three+,       % fasst Seiten zusammen, z.B. S. 2f, 6ff, 7-10
-date=short,                % Datumsformat
+	backend=biber,
+	style=numeric, %
+	isbn=false,
+	sorting=none,                % ISBN nicht anzeigen, gleiches geht mit nahezu allen anderen Feldern
+	pagetracker=true,          % ebd. bei wiederholten Angaben (false=ausgeschaltet, page=Seite, spread=Doppelseite, true=automatisch)
+	maxbibnames=50,            % maximale Namen, die im Literaturverzeichnis angezeigt werden (ich wollte alle)
+	maxcitenames=3,            % maximale Namen, die im Text angezeigt werden, ab 4 wird u.a. nach den ersten Autor angezeigt
+	autocite=inline,           % regelt Aussehen für \autocite (inline=\parancite)
+	block=space,               % kleiner horizontaler Platz zwischen den Feldern
+	backref=true,              % Seiten anzeigen, auf denen die Referenz vorkommt
+	backrefstyle=three+,       % fasst Seiten zusammen, z.B. S. 2f, 6ff, 7-10
+	date=short,                % Datumsformat
 ]{biblatex}
 
 % prints author names as small caps
@@ -200,7 +200,7 @@ date=short,                % Datumsformat
 \preto\longtable{\LT@nocaptiontrue}
 \appto\endlongtable{%
 	\ifLT@nocaption
-	\addtocounter{table}{\m@ne}%
+		\addtocounter{table}{\m@ne}%
 	\fi}
 \preto\LT@caption{%
 	\noalign{\global\LT@nocaptionfalse}}
@@ -225,22 +225,22 @@ date=short,                % Datumsformat
 
 %------------------------ PDF Optionen ----------------------
 \usepackage[
-%hidelinks,
-pdfborder={0 0 0},
-bookmarks,
-linktoc=all,
-bookmarksopen=true,
-colorlinks=false,
-linkcolor=blue, % einfache interne Verkn¸pfungen
-anchorcolor=black, % Ankertext
-citecolor=red, % Verweise auf Literaturverzeichniseintr‰ge im Text
-filecolor=black, % Verkn¸pfungen, die lokale Dateien ˆffnen
-menucolor=black, % Acrobat-Men¸punkte
-urlcolor=blue, 
-pagebackref=false,
-plainpages=false, % zur korrekten Erstellung der Bookmarks
-pdfpagelabels, % zur korrekten Erstellung der Bookmarks
-%hypertexnames=false, % zur korrekten Erstellung der Bookmarks
+	%hidelinks,
+	pdfborder={0 0 0},
+	bookmarks,
+	linktoc=all,
+	bookmarksopen=true,
+	colorlinks=false,
+	linkcolor=blue, % einfache interne Verkn¸pfungen
+	anchorcolor=black, % Ankertext
+	citecolor=red, % Verweise auf Literaturverzeichniseintr‰ge im Text
+	filecolor=black, % Verkn¸pfungen, die lokale Dateien ˆffnen
+	menucolor=black, % Acrobat-Men¸punkte
+	urlcolor=blue,
+	pagebackref=false,
+	plainpages=false, % zur korrekten Erstellung der Bookmarks
+	pdfpagelabels, % zur korrekten Erstellung der Bookmarks
+	%hypertexnames=false, % zur korrekten Erstellung der Bookmarks
 ]{hyperref}
 %\usepackage[all]{hypcap}
 \usepackage{caption}
@@ -268,7 +268,7 @@ pdfpagelabels, % zur korrekten Erstellung der Bookmarks
 \addtokomafont{subsection}{\color{Red}}
 \addtokomafont{subsubsection}{\color{Red}}
 \renewcommand\UrlFont{\color{MidnightBlue}\ttfamily}
-% Paragraph start nicht einrücken 
+% Paragraph start nicht einrücken
 \setlength{\parindent}{0pt}
 
 
@@ -332,8 +332,8 @@ pdfpagelabels, % zur korrekten Erstellung der Bookmarks
 \usepackage{xparse}
 \DeclareDocumentCommand{\newdualentry}{ O{} O{} m m m m } {
 	\newglossaryentry{gls-#3}{name={#5 (#4)},description={#6},#1}
-	\makeglossaries
-	\newglossaryentry{#3}{type=\acronymtype, name={#4}, description=#5, first={\gls{gls-#3}}, see=[Glossar:]{gls-#3}}
+\makeglossaries
+\newglossaryentry{#3}{type=\acronymtype, name={#4}, description=#5, first={\gls{gls-#3}}, see=[Glossar:]{gls-#3}}
 }
 
 %\renewcommand{\glsnumberformat}[1]{%

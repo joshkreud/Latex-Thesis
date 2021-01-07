@@ -1,4 +1,3 @@
-
 % !TEX encoding = UTF-8
 % !TEX spellcheck = de_DE
 % !TeX TXS-program:bibliography = txs:///biber
@@ -21,69 +20,69 @@
 
 \begin{document}
 
-	\pagenumbering{Roman}
-	\subfile{./tex/Title.tex}
-	\rofoot{Seite: \thepage}
-	
-	\clearpage
-	\subfile{./tex/Legalease.tex}
-	\glsunsetall
-	\microtypesetup{protrusion=false} % disables protrusion locally in the document
-	\clearpage
-	\markright{Inhaltsverzeichnis}
-	\tableofcontents % prints Table of Contents
-	\pagebreak
-	\listoffigures
-	\listoftables
-	\pagebreak
-	\glsresetall % Reset Glossary
-	\printacronyms
-	\pagebreak
-	\printglossary
-	\glsresetall % Reset Glossary
-	\microtypesetup{protrusion=true} % enables protrusion
-	\clearpage
-	
-	% -------------------- First Glossary with Footnote
-	\defglsentryfmt{%
-		\glsifplural{
-			\ifglsused{\glslabel}{%
-				\unskip\fachbegriff{\glsentryplural{\glslabel}}\ignorespaces%
-			}{%
-				% Typeset first use
-				\unskip\fachbegriff{\glsentryplural{\glslabel}}\footnote{\Glsentrydesc{\glslabel}.}\ignorespaces%
-			}%
-		}{
-			\ifglsused{\glslabel}{%
-				\unskip\fachbegriff{\glsgenentryfmt}\ignorespaces%
-			}{%
-				% Typeset first use
-				\unskip\fachbegriff{\glsentryname{\glslabel}}\footnote{\Glsentrydesc{\glslabel}.}\ignorespaces%
-			}%
-		}
+\pagenumbering{Roman}
+\subfile{./tex/Title.tex}
+\rofoot{Seite: \thepage}
+
+\clearpage
+\subfile{./tex/Legalease.tex}
+\glsunsetall
+\microtypesetup{protrusion=false} % disables protrusion locally in the document
+\clearpage
+\markright{Inhaltsverzeichnis}
+\tableofcontents % prints Table of Contents
+\pagebreak
+\listoffigures
+\listoftables
+\pagebreak
+\glsresetall % Reset Glossary
+\printacronyms
+\pagebreak
+\printglossary
+\glsresetall % Reset Glossary
+\microtypesetup{protrusion=true} % enables protrusion
+\clearpage
+
+% -------------------- First Glossary with Footnote
+\defglsentryfmt{%
+	\glsifplural{
+		\ifglsused{\glslabel}{%
+			\unskip\fachbegriff{\glsentryplural{\glslabel}}\ignorespaces%
+		}{%
+			% Typeset first use
+			\unskip\fachbegriff{\glsentryplural{\glslabel}}\footnote{\Glsentrydesc{\glslabel}.}\ignorespaces%
+		}%
+	}{
+		\ifglsused{\glslabel}{%
+			\unskip\fachbegriff{\glsgenentryfmt}\ignorespaces%
+		}{%
+			% Typeset first use
+			\unskip\fachbegriff{\glsentryname{\glslabel}}\footnote{\Glsentrydesc{\glslabel}.}\ignorespaces%
+		}%
 	}
-	%---------------------------------------------------------------------------
-	
-	
-	
-	\rofoot {\pagename: \thepage { \color{Red} von \pageref{LastPage}}}
-	
-	\pagenumbering{arabic}
-	
-	\subfile{./tex/Preambel.tex}
-	\clearpage
-	\subfile{./tex/Chapter1.tex}
-	\clearpage
-	\subfile{./tex/Chapter2.tex}
-	\subfile{./tex/Chapter3.tex}
-	\subfile{./tex/Chapter4.tex}
-	\subfile{./tex/Chapter5.tex}
-	\clearpage
-	\subfile{./tex/Chapter6.tex}
-	\clearpage
-	\subfile{./tex/Anlagen.tex}
-	
-	\clearpage
-	\markright{Literatur}
-	\printbibliography
+}
+%---------------------------------------------------------------------------
+
+
+
+\rofoot {\pagename: \thepage { \color{Red} von \pageref{LastPage}}}
+
+\pagenumbering{arabic}
+
+\subfile{./tex/Preambel.tex}
+\clearpage
+\subfile{./tex/Chapter1.tex}
+\clearpage
+\subfile{./tex/Chapter2.tex}
+\subfile{./tex/Chapter3.tex}
+\subfile{./tex/Chapter4.tex}
+\subfile{./tex/Chapter5.tex}
+\clearpage
+\subfile{./tex/Chapter6.tex}
+\clearpage
+\subfile{./tex/Anlagen.tex}
+
+\clearpage
+\markright{Literatur}
+\printbibliography
 \end{document}
