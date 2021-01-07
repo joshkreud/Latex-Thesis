@@ -17,8 +17,8 @@ Run `make clean` to delete auxiliiary files.
 
 ## Windows Specialties
 
-Make sure the package [`xindy`](https://ctan.org/pkg/xindy) is installed using Miktex **Admin** Mode.\
-Also make sure to have [`strawberryperl`](https://strawberryperl.com/) installed
+Make sure the package [xindy](https://ctan.org/pkg/xindy) is installed using Miktex **Admin** Mode.\
+Also make sure to have [strawberryperl](https://strawberryperl.com/) installed
 
 ## VScode Latex
 
